@@ -12,7 +12,6 @@ interface FoodButtonType{
 
 
 const FoodType = ({category,filterFood,foodItem,setFoodItem}:FoodButtonType) => {
-    const [searchFood, setSearchFood]= useState<string>('')
 
   return (
     <>
