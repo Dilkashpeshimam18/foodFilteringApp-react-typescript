@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Food } from '../model';
 import {Data} from '../Data'
 
@@ -12,9 +12,15 @@ interface FoodButtonType{
 
 
 const FoodType = ({category,filterFood,foodItem,setFoodItem}:FoodButtonType) => {
+    const [searchFood, setSearchFood]= useState<string>('')
+
   return (
     <>
+   
+   
       <div className="d-flex justify-content-center">
+
+
         {category?.map((Val, id) => {
           return (
             <button
