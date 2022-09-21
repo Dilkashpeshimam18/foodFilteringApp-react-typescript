@@ -1,15 +1,24 @@
 import React from 'react'
-import './FoodCard.css'
 import FoodType from './FoodType'
 import { Food } from '../model';
 
 interface FoodCardType{
-    foodItem: Food[]
+    foodItem: Food[],
+    setFoodItem:React.Dispatch<React.SetStateAction<Food[]>>;
 }
-const FoodCard = ({foodItem}: FoodCardType) => {
+
+const FoodCard = ({foodItem,setFoodItem}: FoodCardType) => {
+    const menuItem = new Set<string>(foodItem.map((val)=>val.category))
+    const category=Array.from(menuItem)
+    const filterFood=(cat:string)=>{
+        const newItem= foodItem.filter((newval)=>{
+           return newval.category==cat
+        })
+        setFoodItem(newItem)
+    }
   return (
     <div>
-        <FoodType />
+        <FoodType setFoodItem={setFoodItem} foodItem={foodItem} filterFood={filterFood} category={category} />
 
         <div className="container-fluid">
             <div className="row justify-content-center">

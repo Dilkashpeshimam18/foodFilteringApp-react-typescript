@@ -6,10 +6,11 @@ import {Data} from './Data'
 
 function App() {
   const [foodItem,setFoodItem] = useState<Food[]>(Data)
+
   return (
     <div className="App">
-     <h1>Food Filtering</h1>
-     <FoodCard  foodItem={foodItem}/>
+     <h1 style={{margin:'15px',marginBottom:'20px'}}>Food Filtering</h1>
+     <FoodCard setFoodItem={setFoodItem} foodItem={foodItem}/>
     </div>
   );
 }
